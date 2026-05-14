@@ -1,0 +1,28 @@
+/* wayland-kbdstate panel plugin styling.
+ * Loaded at runtime from the plugin data directory, so it can be tweaked
+ * without rebuilding. Anything in your GTK theme at USER priority wins over it.
+ */
+
+.kbdstate-status-frame {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+.kbdstate-flag-frame {
+  padding: 0;
+  margin: 1px 2px;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+.kbdstate-fallback {
+  font-weight: 600;
+  padding-left: 3px;
+  padding-right: 3px;
+}

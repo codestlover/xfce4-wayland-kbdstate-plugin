@@ -1,0 +1,9 @@
+
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Name=Wayland Keyboard State
+Comment=Shows current layout as a flag under native Wayland
+Icon=input-keyboard
+X-XFCE-Module=@PLUGIN_NAME@
+X-XFCE-Module-Path=@PLUGIN_MODULE_DIR@
+X-XFCE-API=2.0
