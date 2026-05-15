@@ -72,13 +72,3 @@ configure_file(
   install: true,
   install_dir: plugin_desktop_dir,
 )
-
-# Universal, meson-driven install. `meson install` also clears stale /usr/local
-# copies via the post-install hook below; `meson compile -C build restart-panel`
-# (or `ninja -C build restart-panel`) relaunches the panel as a Wayland client.
-meson.add_install_script('scripts/meson-postinstall.sh')
-
-run_target(
-  'restart-panel',
-  command: [find_program('sh'), meson.current_source_dir() / 'scripts' / 'restart-panel.sh'],
-)

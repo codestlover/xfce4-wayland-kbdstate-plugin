@@ -92,14 +92,18 @@ On other distributions, install the equivalents of the packages listed above.
 meson setup build --prefix=/usr
 meson compile -C build
 sudo meson install -C build
-meson compile -C build restart-panel
 ```
 
-- `meson install` installs the plugin module, the flag images, the stylesheet and
-  the `.desktop` file; a post-install hook removes stale copies from `/usr/local`.
-- `meson compile -C build restart-panel` (or `ninja -C build restart-panel`)
-  relaunches `xfce4-panel` as a native Wayland client. Run it **without** `sudo`,
-  from inside your Wayland session.
+`meson install` installs the plugin module, the flag images, the stylesheet and
+the `.desktop` file.
+
+Then restart `xfce4-panel` as a native Wayland client (from inside your Wayland
+session, **without** `sudo`):
+
+```bash
+xfce4-panel -q
+setsid -f env GDK_BACKEND=wayland xfce4-panel >/dev/null 2>&1
+```
 
 If a `build/` directory is left over from an older checkout, recreate it:
 `rm -rf build` (or `meson setup --wipe build`).
