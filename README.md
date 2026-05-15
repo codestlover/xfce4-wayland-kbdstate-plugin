@@ -13,9 +13,27 @@ The plugin uses only the core Wayland protocol (`wl_seat` / `wl_keyboard`) and
 `xkbcommon` — nothing compositor-specific — so it is not tied to any particular
 Wayland compositor.
 
-It has been developed and tested **only on labwc**. Other Wayland compositors are
-expected to work but are currently unverified. The panel itself must run as a
-native Wayland client (`GDK_BACKEND=wayland`).
+The panel itself must run as a native Wayland client (`GDK_BACKEND=wayland`).
+
+Testing status across Wayland compositors that host `xfce4-panel`:
+
+| Compositor   | Family              | Status      |
+| ------------ | ------------------- | ----------- |
+| **labwc**    | wlroots · stacking  | ✅ Tested    |
+| Wayfire      | wlroots · stacking  | ❔ Untested  |
+| Hikari       | wlroots · stacking  | ❔ Untested  |
+| Sway         | wlroots · tiling    | ❔ Untested  |
+| Hyprland     | wlroots · tiling    | ❔ Untested  |
+| River        | wlroots · tiling    | ❔ Untested  |
+| niri         | wlroots · tiling    | ❔ Untested  |
+| dwl          | wlroots · tiling    | ❔ Untested  |
+| Cage         | wlroots · kiosk     | ❔ Untested  |
+| cosmic-comp  | Smithay             | ❔ Untested  |
+
+All listed compositors implement `wlr-layer-shell`, which `xfce4-panel` uses to
+dock. GNOME (Mutter) is not listed because it does not implement layer-shell;
+full desktops like KDE Plasma normally use their own panel. Reports for any
+untested compositor are welcome.
 
 ## Features
 
